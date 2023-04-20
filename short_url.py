@@ -1,6 +1,6 @@
 class UrlShortener:
     url_to_id = {}
-    id = 1022445
+    id = 100
     characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
     def shorten_url(self, orginal_url):
@@ -44,6 +44,8 @@ class UrlShortener:
             power = (strlen - (idx + 1))
             num += self.characters.index(char) * (base ** power)
             idx += 1
-
-        value = [i for i in self.url_to_id if self.url_to_id[i]==num][0]
-        return value
+        try:
+            value = [i for i in self.url_to_id if self.url_to_id[i]==num][0]
+            return value
+        except:
+            return None
